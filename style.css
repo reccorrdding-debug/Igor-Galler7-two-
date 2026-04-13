@@ -1,0 +1,93 @@
+:root {
+    --bg-gradient: linear-gradient(90deg, rgba(69, 0, 34, 0.8), rgba(41, 112, 176, 0.8), rgba(35, 221, 203, 0.8));
+    --card-bg: linear-gradient(90deg, #ad3e61, #b30091, #6d1fe1);
+    --text-color: #ffffff;
+    --border-color: rgba(255, 255, 255, 0.3);
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: var(--bg-gradient), url('https://i.postimg.cc/6Q6s1PMN/IMG-20240202-WA0006.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    color: var(--text-color);
+    padding: 20px;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    padding: 25px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+/* Анимация игрового автомата */
+.slot-spin {
+    animation: spin-effect 0.15s linear infinite;
+}
+
+@keyframes spin-effect {
+    0% { transform: translateY(0) scale(0.9); opacity: 0.7; }
+    50% { transform: translateY(-10px) scale(0.85); opacity: 0.4; }
+    100% { transform: translateY(10px) scale(0.9); opacity: 0.7; }
+}
+
+.image-container {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.2s;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.btn-main { background: #3498db; flex-grow: 1; border: none; padding: 15px; border-radius: 12px; color: white; font-weight: bold; cursor: pointer; }
+.btn-fav { background: #e74c3c; border: none; padding: 15px; border-radius: 12px; cursor: pointer; font-size: 1.2rem; }
+
+.favorites-section {
+    border-top: 1px solid var(--border-color);
+    padding-top: 15px;
+    max-height: 250px;
+    overflow-y: auto;
+}
+
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.fav-grid img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.footer { position: fixed; bottom: 10px; width: 100%; text-align: center; font-size: 0.8rem; color: white; pointer-events: none; }
